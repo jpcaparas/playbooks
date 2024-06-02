@@ -10,7 +10,8 @@ This repository contains Ansible playbooks to provision different types of Ubunt
 ## Running Playbooks
 
 1. [Install Ansible v2.x](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) on your local machine
-1. Clone this repository 
+1. Clone this repository and `cd` into it.
+1. Install required Ansible roles: `ansible-galaxy install -r requirements.yml`
 1. Run: 
    - Common packages: `ansible-playbook playbook.yml -vvv`
    - Server packages: `ansible-playbook playbook.yml -vvv --tags=server`
