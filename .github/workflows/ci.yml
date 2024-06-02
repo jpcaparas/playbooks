@@ -11,6 +11,9 @@ on:
       - "main"
       - "feature/*"
       - "bugfix/*"
+  schedule:
+    - cron: '0 0 * * 0' # Scheduled to run every Sunday at 12:00 AM
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
