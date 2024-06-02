@@ -1,0 +1,23 @@
+name: Matrix build on multiple operating systems
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, fedora-latest]
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Ansible
+        run: pip3 install ansible
+
+      - name: Run playbook
+        run: ansible-playbook site.yml -i inventory
