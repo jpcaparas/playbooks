@@ -1,17 +1,33 @@
 ---
 - hosts: all
 
+  vars_files:
+    - vars/main.yml
+
   vars:
     use_become: "{{ ansible_os_family != 'Darwin' }}"
 
-  tasks:
-    - name: Include variables
-      include_vars: "vars.yml"
-      tags: always
+    is_server: "{{ 'server' in ansible_run_tags }}"
+    is_workstation: "{{ 'debug' in ansible_run_tags }}"
 
-    - name: Output names of packages to be installed for common role
+  roles:
+    - role: geerlingguy.php
+      when: is_server or is_workstation
+
+  tasks:
+    - name: Output host vars
+      debug:
+        var: hostvars
+      tags: debug
+
+    - name: Output main vars
       debug:
         var: packages
+      tags: debug
+
+    - name: Output is_server
+      debug:
+        var: is_server
       tags: always
 
     - name: Install packages for common role
