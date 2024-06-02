@@ -38,9 +38,11 @@ php_packages:
   - php-pear
 
 # geerlingguy.mysql
-mysql_enabled_on_startup: true
+mysql_root_username: root
 mysql_root_password: ''
 mysql_root_password_update: yes
+mysql_enabled_on_startup: true
+overwrite_global_mycnf: true
 mysql_packages:
   - mysql-server
   - mysql-client
