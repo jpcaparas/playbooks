@@ -1,6 +1,6 @@
 # JP's Playbooks
 
-This repository contains Ansible playbooks to provision different types of machines:
+This repository contains Ansible playbooks to provision different types of Ubuntu machines:
 
 - Common: Base packages installed on all machines
 - Server: Packages for servers, imports common playbook 
@@ -17,11 +17,5 @@ This repository contains Ansible playbooks to provision different types of machi
    - Workstation packages: `ansible-playbook playbook.yml -vvv --tags=workstation`
    - Combination server + workstation packages: `ansible-playbook playbook.yml -vvv --tags=server,workstation`
    - Friend packages: `ansible-playbook playbook.yml -vvv --tags=friend`
-
-## Supported Platforms
-
-The playbooks are tested on:
-- Debian/Ubuntu
-- macOS
 
 Some packages are OS-specific and will only be installed if supported on the target platform.

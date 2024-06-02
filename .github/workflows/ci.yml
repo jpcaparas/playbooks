@@ -12,13 +12,17 @@ on:
       - "feature/*"
       - "bugfix/*"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-20, ubuntu-22, macos-14]
+        os: [ubuntu-22.04, ubuntu-22.04, ubuntu-20.04]
     steps:
       - uses: actions/checkout@v3
 
