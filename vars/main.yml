@@ -52,7 +52,7 @@ mysql_databases:
 mysql_users:
   - name: root
     host: "%"
-    password: root
+    password: ''
     priv: "*.*:ALL"
   - name: example_user
     host: "%"
