@@ -20,7 +20,7 @@
     - role: geerlingguy.mysql
       become: "{{ use_become }}"
       tags: always
-      state: started
+      state: present
       when: is_server or is_workstation
 
   post_tasks:
