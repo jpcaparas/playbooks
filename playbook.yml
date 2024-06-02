@@ -6,8 +6,8 @@
 
   tasks:
     - name: Install common
+      become: "{{ use_become }}"
       ansible.builtin.package:
-        become: "{{ use_become }}"
         name:
           - git
           - vim
