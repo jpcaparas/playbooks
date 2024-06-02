@@ -21,8 +21,7 @@ This repository contains Ansible playbooks to provision different types of machi
 ## Supported Platforms
 
 The playbooks are tested on:
-- macOS
-- Fedora/RHEL
 - Debian/Ubuntu
+- macOS
 
 Some packages are OS-specific and will only be installed if supported on the target platform.
