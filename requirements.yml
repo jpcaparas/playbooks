@@ -1,2 +1,4 @@
 ---
-- src: geerlingguy.php
+roles:
+  - name: geerlingguy.php
+    version: 5.0.1

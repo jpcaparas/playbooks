@@ -12,8 +12,11 @@
 
   roles:
     - role: geerlingguy.php
+      become: "{{ use_become }}"
+      tags: always
+      when: is_server or is_workstation
 
-  tasks:
+  post_tasks:
     - name: Output host vars
       debug:
         var: hostvars

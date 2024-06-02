@@ -17,13 +17,16 @@ packages:
 
 php_enable_webserver: false
 php_enable_php_fpm: true
-php_default_version_debian: "8.2"
+php_default_version_debian: "8.3"
+php_memory_limit: "128M"
+php_max_execution_time: "90"
+php_upload_max_filesize: "256M"
+php_install_recommends: true
 php_packages:
   - php
   - php-cli
   - php-fpm
   - php-json
-  - php-pdo
   - php-mysql
   - php-zip
   - php-gd
