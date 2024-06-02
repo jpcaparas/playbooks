@@ -39,7 +39,7 @@ php_packages:
 
 # geerlingguy.mysql
 mysql_enabled_on_startup: true
-mysql_root_password_update: true
+mysql_root_password_update: yes
 mysql_packages:
   - mysql-server
   - mysql-client
