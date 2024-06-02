@@ -43,5 +43,5 @@ jobs:
       - name: Run playbook
         run: |
           source env/bin/activate
-          ansible-galaxy install -r requirements.yml
-          ansible-playbook playbook.yml --tags=server,workstation,friend -vvv
+          sudo ansible-galaxy install -r requirements.yml
+          sudo ansible-playbook playbook.yml --tags=server,workstation,friend -vvv
