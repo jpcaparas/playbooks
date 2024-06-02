@@ -1,15 +1,43 @@
 ---
 - hosts: all
-  become: yes
+
+  vars:
+    use_become: "{{ ansible_os_family != 'Darwin' }}"
 
   tasks:
-    - name: Install common
+    - name: Include variables
+      include_vars: "vars.yml"
+      tags: always
+
+    - name: Output names of packages to be installed for common role
+      debug:
+        var: packages
+      tags: always
+
+    - name: Install packages for common role
+      become: "{{ use_become }}"
       ansible.builtin.package:
-        name:
-          - git
-          - vim
-          - htop
-          - xz-utils
-          - golang
-          - fail2ban
+        name: "{{ packages.common }}"
         state: present
+      tags: always
+
+    - name: Install packages for server role
+      become: "{{ use_become }}"
+      ansible.builtin.package:
+        name: "{{ packages.server }}"
+        state: present
+      tags: server
+
+    - name: Install packages for workstation role
+      become: "{{ use_become }}"
+      ansible.builtin.package:
+        name: "{{ packages.workstation }}"
+        state: present
+      tags: workstation
+
+    - name: Install packages for friend role
+      become: "{{ use_become }}"
+      ansible.builtin.package:
+        name: "{{ packages.friend }}"
+        state: present
+      tags: friend

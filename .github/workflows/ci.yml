@@ -2,17 +2,27 @@ name: Matrix build on multiple operating systems
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - "main"
+      - "feature/*"
+      - "bugfix/*"
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - "main"
+      - "feature/*"
+      - "bugfix/*"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-
   test:
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
-        os: [macos-latest, ubuntu-latest, fedora-latest]
+        os: [ubuntu-22.04, ubuntu-22.04, ubuntu-20.04]
     steps:
       - uses: actions/checkout@v3
 
@@ -30,4 +40,4 @@ jobs:
       - name: Run playbook
         run: |
           source env/bin/activate
-          ansible-playbook playbook.yml -vvv
+          ansible-playbook playbook.yml --tags=server,workstation,friend -vvv
