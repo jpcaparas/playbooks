@@ -1,10 +1,13 @@
 ---
 - hosts: all
-  become: yes
+
+  vars:
+    use_become: "{{ ansible_os_family != 'Darwin' }}"
 
   tasks:
     - name: Install common
       ansible.builtin.package:
+        become: "{{ use_become }}"
         name:
           - git
           - vim

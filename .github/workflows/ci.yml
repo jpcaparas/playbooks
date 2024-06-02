@@ -2,15 +2,21 @@ name: Matrix build on multiple operating systems
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - "main"
+      - "feature/*"
+      - "bugfix/*"
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - "main"
+      - "feature/*"
+      - "bugfix/*"
 
 jobs:
-
   test:
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os: [macos-latest, ubuntu-latest, fedora-latest]
     steps:
