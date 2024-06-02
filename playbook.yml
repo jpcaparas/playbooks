@@ -1,0 +1,15 @@
+---
+- hosts: all
+  become: yes
+
+  tasks:
+    - name: Install common
+      ansible.builtin.package:
+        name:
+          - git
+          - vim
+          - htop
+          - xz-utils
+          - golang
+          - fail2ban
+        state: present

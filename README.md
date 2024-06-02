@@ -9,10 +9,9 @@ This repository contains Ansible playbooks to provision different types of machi
 
 ## Running Playbooks
 
-1. Install Ansible on your local machine
+1. [Install Ansible v2.x](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) on your local machine
 1. Clone this repository 
-1. Update the `inventory` file with the hosts to provision
-1. Run the desired playbook
+1. Run: `ansible-playbook playbook.yml -vvv`
 
 ## Supported Platforms
 
@@ -21,4 +20,4 @@ The playbooks are tested on:
 - Fedora/RHEL
 - Debian/Ubuntu
 
-Some packages are OS specific and will only be installed if supported on the target platform.
+Some packages are OS-specific and will only be installed if supported on the target platform.
