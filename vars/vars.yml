@@ -1,0 +1,16 @@
+---
+packages:
+  common:
+    - git
+    - vim
+    - htop
+
+  friend:
+    - libreoffice
+
+  server:
+    - fail2ban
+
+  workstation:
+    - nginx
+    - docker

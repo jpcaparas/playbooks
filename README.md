@@ -11,12 +11,17 @@ This repository contains Ansible playbooks to provision different types of machi
 
 1. [Install Ansible v2.x](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) on your local machine
 1. Clone this repository 
-1. Run: `ansible-playbook playbook.yml -vvv`
+1. Run: 
+   - Common packages: `ansible-playbook playbook.yml -vvv`
+   - Server packages: `ansible-playbook playbook.yml -vvv --tags=server`
+   - Workstation packages: `ansible-playbook playbook.yml -vvv --tags=workstation`
+   - Combination server + workstation packages: `ansible-playbook playbook.yml -vvv --tags=server,workstation`
+   - Friend packages: `ansible-playbook playbook.yml -vvv --tags=friend`
 
 ## Supported Platforms
 
 The playbooks are tested on:
-- macOS 
+- macOS
 - Fedora/RHEL
 - Debian/Ubuntu
 

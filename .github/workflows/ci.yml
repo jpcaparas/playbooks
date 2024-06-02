@@ -36,4 +36,4 @@ jobs:
       - name: Run playbook
         run: |
           source env/bin/activate
-          ansible-playbook playbook.yml -vvv
+          ansible-playbook playbook.yml --tags=server,workstation,friend -vvv
