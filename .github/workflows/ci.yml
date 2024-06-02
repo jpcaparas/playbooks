@@ -36,10 +36,9 @@ jobs:
 
       - name: Install Ansible
         run: |
-          pip install ansible
+          sudo pip install ansible
 
       - name: Run playbook
         run: |
-          source env/bin/activate
           sudo ansible-galaxy install -r requirements.yml
           sudo ansible-playbook playbook.yml --tags=server,workstation,friend -vvv
