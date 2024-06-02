@@ -12,7 +12,6 @@
 
   roles:
     - role: geerlingguy.php
-      when: is_server or is_workstation
 
   tasks:
     - name: Output host vars
@@ -28,7 +27,7 @@
     - name: Output is_server
       debug:
         var: is_server
-      tags: always
+      tags: debug
 
     - name: Install packages for common role
       become: "{{ use_become }}"
