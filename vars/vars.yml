@@ -6,7 +6,7 @@ packages:
     - htop
 
   friend:
-    - libreoffice
+    - vlc
 
   server:
     - fail2ban
