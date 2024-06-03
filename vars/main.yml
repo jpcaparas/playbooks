@@ -44,8 +44,8 @@ mysql_root_password_update: yes
 mysql_enabled_on_startup: true
 overwrite_global_mycnf: true
 mysql_packages:
-  - mariadb-client-10
-  - mariadb-server-10
+  - mariadb-client
+  - mariadb-server-10.2
 mysql_port: "3306"
 mysql_bind_address: 'localhost'
 mysql_databases:
