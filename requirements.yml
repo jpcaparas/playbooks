@@ -1,4 +1,9 @@
 ---
+collections:
+  - name: community.mysql
+    version: 3.9.0
 roles:
   - name: geerlingguy.php
     version: 5.0.1
+  - name: geerlingguy.mysql
+    version: 4.3.4

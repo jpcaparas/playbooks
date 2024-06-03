@@ -10,10 +10,29 @@
     is_server: "{{ 'server' in ansible_run_tags }}"
     is_workstation: "{{ 'debug' in ansible_run_tags }}"
 
+  pre_tasks: # Add this section
+    - name: Update package lists
+      become: "{{ use_become }}"
+      ansible.builtin.apt:
+        update_cache: yes
+      tags: always
+
+    - name: Fix broken dependencies
+      become: "{{ use_become }}"
+      command: apt-get install -f
+      tags: always
+
   roles:
     - role: geerlingguy.php
       become: "{{ use_become }}"
+      state: present
       tags: always
+      when: is_server or is_workstation
+
+    - role: geerlingguy.mysql
+      become: "{{ use_become }}"
+      tags: always
+      state: present
       when: is_server or is_workstation
 
   post_tasks:

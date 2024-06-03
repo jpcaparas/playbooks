@@ -25,8 +25,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-22.04, ubuntu-22.04, ubuntu-20.04]
+        os: [ubuntu-22.04, ubuntu-24.04]
     steps:
+      - name: Show available MariaDB versions from apt cache
+        run: sudo apt-cache search mariadb-server
+
       - uses: actions/checkout@v3
 
       - name: Set up Python
@@ -44,4 +47,4 @@ jobs:
         run: |
           source env/bin/activate
           ansible-galaxy install -r requirements.yml
-          ansible-playbook playbook.yml --tags=server,workstation,friend -vvv
+          ansible-playbook playbook.yml --tags=server,workstation,friend,debug -vvv
