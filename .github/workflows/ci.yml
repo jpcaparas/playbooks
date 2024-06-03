@@ -27,9 +27,6 @@ jobs:
       matrix:
         os: [ubuntu-22.04, ubuntu-24.04]
     steps:
-      - name: Update and upgrade system packages
-        run: sudo apt update && sudo apt upgrade -y
-
       - name: Show available MariaDB versions from apt cache
         run: sudo apt-cache search mariadb-server
 
