@@ -13,7 +13,7 @@ packages:
 
   workstation:
     - nginx
-    - docker
+    - "{{ ansible_distribution_version is version('22', '>=') | ternary('docker', '') }}"
 
 # geerlingguy.php
 php_enable_webserver: false
