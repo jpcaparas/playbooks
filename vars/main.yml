@@ -38,17 +38,15 @@ php_packages:
   - php-pear
 
 # geerlingguy.mysql
-mysql_user_name: root
-mysql_user_password: ''
-mysql_user_password_update: true
 mysql_root_username: root
-mysql_root_password: ''
+mysql_root_password: root
 mysql_root_password_update: yes
 mysql_enabled_on_startup: true
 overwrite_global_mycnf: true
 mysql_packages:
-  - mysql-server
-  - mysql-client
+  - mariadb-client
+  - mariadb-server
+  - python-mysqldb
 mysql_port: "3306"
 mysql_bind_address: 'localhost'
 mysql_databases:
