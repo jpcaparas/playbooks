@@ -39,13 +39,13 @@ php_packages:
 
 # geerlingguy.mysql
 mysql_root_username: root
-mysql_root_password: root
+mysql_root_password: ''
 mysql_root_password_update: yes
 mysql_enabled_on_startup: true
 overwrite_global_mycnf: true
 mysql_packages:
-  - mariadb-client
-  - mariadb-server
+  - mysql-server
+  - mysql-client
 mysql_port: "3306"
 mysql_bind_address: 'localhost'
 mysql_databases:
