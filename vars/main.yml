@@ -46,7 +46,6 @@ overwrite_global_mycnf: true
 mysql_packages:
   - mariadb-client
   - mariadb-server
-  - python-mysqldb
 mysql_port: "3306"
 mysql_bind_address: 'localhost'
 mysql_databases:
