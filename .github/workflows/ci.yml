@@ -34,6 +34,9 @@ jobs:
         with:
           python-version: '3.x'
 
+      - name: Show available MariaDB versions from apt cache
+        run: sudo apt-cache search mariadb-server
+
       - name: Install Ansible
         run: |
           python3 -m venv env
@@ -44,4 +47,4 @@ jobs:
         run: |
           source env/bin/activate
           ansible-galaxy install -r requirements.yml
-          ansible-playbook playbook.yml --tags=server,workstation,friend -vvv
+          ansible-playbook playbook.yml --tags=server,workstation,friend,debug -vvv
