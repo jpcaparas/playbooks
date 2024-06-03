@@ -27,15 +27,18 @@ jobs:
       matrix:
         os: [ubuntu-22.04, ubuntu-20.04]
     steps:
+      - name: Update and upgrade system packages
+        run: sudo apt update && sudo apt upgrade -y
+
+      - name: Show available MariaDB versions from apt cache
+        run: sudo apt-cache search mariadb-server
+
       - uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'
-
-      - name: Show available MariaDB versions from apt cache
-        run: sudo apt-cache search mariadb-server
 
       - name: Install Ansible
         run: |

@@ -45,7 +45,8 @@ mysql_enabled_on_startup: true
 overwrite_global_mycnf: true
 mysql_packages:
   - mariadb-client
-  - "{{ ansible_distribution_version is version('22', '>=') | ternary('mariadb-server-10.6', 'mariadb-server-9') }}"
+  - mariadb-server
+  # - "{{ ansible_distribution_version is version('22', '>=') | ternary('mariadb-server-10.6', 'mariadb-server-9') }}"
 mysql_port: "3306"
 mysql_bind_address: 'localhost'
 mysql_databases:
