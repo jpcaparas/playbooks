@@ -19,4 +19,3 @@ This repository contains Ansible playbooks to provision different types of Ubunt
    - Combination server + workstation packages: `ansible-playbook playbook.yml -vvv --tags=server,workstation`
    - Friend packages: `ansible-playbook playbook.yml -vvv --tags=friend`
 
-Some packages are OS-specific and will only be installed if supported on the target platform.
