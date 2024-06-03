@@ -1,4 +1,4 @@
-# JP's Playbooks
+# Ubuntu Playbooks
 
 This repository contains Ansible playbooks to provision different types of Ubuntu machines:
 
